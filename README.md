@@ -4,11 +4,11 @@ This project is a small console application designed as a companion for the Plex
 
 It cleans up the Plex libraries of the subtitles left after using UTF-8 Subtitles Converter (which generates new UTF-8 encoded subtitle files).
 
-[Current stable version: 1.0.0 (Build 1)](https://github.com/adriantc/subtitlesleftovercleaner/releases/latest)
+[Current stable version: 1.0.0 (Build 1)](https://github.com/adriantc/SubtitlesLeftoverCleaner/releases/latest)
 
 ## Installation
 
-Download the [SubtitlesLeftoverCleaner_x86.exe or SubtitlesLeftoverCleaner_x64.exe from the latest release](https://github.com/adriantc/subtitlesleftovercleaner/releases/latest). Choose the arhitecture you require (x86 or x86-64). If you don't know what that is, choose [SubtitlesLeftoverCleaner_x86.exe](https://github.com/adriantc/subtitlesleftovercleaner/releases/latest).
+Download the [SubtitlesLeftoverCleaner_x86.exe or SubtitlesLeftoverCleaner_x64.exe from the latest release](https://github.com/adriantc/SubtitlesLeftoverCleaner/releases/latest). Choose the arhitecture you require (x86 or x86-64). If you don't know what that is, choose [SubtitlesLeftoverCleaner_x86.exe](https://github.com/adriantc/SubtitlesLeftoverCleaner/releases/latest).
 
 ## Usage
 
