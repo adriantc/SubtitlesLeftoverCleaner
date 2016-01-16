@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{964ABA84-46B4-4495-9627-1B6DA04EC5EE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="SubtitlesLeftoverCleaner.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SubtitlesLeftoverCleaner">
+        <MSBuild Projects="SubtitlesLeftoverCleaner.dproj"/>
+    </Target>
+    <Target Name="SubtitlesLeftoverCleaner:Clean">
+        <MSBuild Projects="SubtitlesLeftoverCleaner.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SubtitlesLeftoverCleaner:Make">
+        <MSBuild Projects="SubtitlesLeftoverCleaner.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SubtitlesLeftoverCleaner"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SubtitlesLeftoverCleaner:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SubtitlesLeftoverCleaner:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
