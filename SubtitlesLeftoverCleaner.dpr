@@ -19,7 +19,12 @@ program SubtitlesLeftoverCleaner;
 {$APPTYPE CONSOLE}
 {$R *.res}
 
-uses System.SysUtils, StrUtils, IOUtils;
+{$R 'VersionInfo.res' 'VersionInfo.rc'}
+
+uses
+  System.SysUtils,
+  StrUtils,
+  IOUtils;
 
 function CleanDirectory(const Name: string): Boolean;
 var
