@@ -18,13 +18,9 @@ program SubtitlesLeftoverCleaner;
 
 {$APPTYPE CONSOLE}
 {$R *.res}
-
 {$R 'VersionInfo.res' 'VersionInfo.rc'}
 
-uses
-  System.SysUtils,
-  StrUtils,
-  IOUtils;
+uses System.SysUtils, StrUtils, IOUtils;
 
 function CleanDirectory(const Name: string): Boolean;
 var
@@ -44,8 +40,11 @@ begin
         if (SearchResult.Attr and faDirectory <> 0) then begin
           if (SearchResult.Name <> '.') and (SearchResult.Name <> '..') then begin
             Writeln('Folder found! (' + Name + '\' + SearchResult.Name);
-            EmptyFolder := CleanDirectory(Name + '\' + SearchResult.Name);
-            SubtitlesOnlyFolder := EmptyFolder;
+            if (not CleanDirectory(Name + '\' + SearchResult.Name)) then begin
+              EmptyFolder := false;
+              SubtitlesOnlyFolder := false;
+              Continue;
+            end;
           end;
         end else begin
           EmptyFolder := false;
@@ -58,19 +57,23 @@ begin
         end;
       until FindNext(SearchResult) <> 0;
 
-      if (EmptyFolder or SubtitlesOnlyFolder) then begin
-        if (SubtitlesOnlyFolder) then begin
-          { Cleaning up its content first, otherwise RemoveDir will fail! }
-          Writeln('Folder ' + Name + ' only had subtitle file(s). Removing its content!');
-          for Filepath in TDirectory.GetFiles(Name, '*.*', TSearchOption.soAllDirectories) do begin
-            TFile.Delete(Filepath);
+      if (Name <> paramstr(1)) then begin
+        if (EmptyFolder or SubtitlesOnlyFolder) then begin
+          if (SubtitlesOnlyFolder) then begin
+            { Cleaning up its content first, otherwise RemoveDir will fail! }
+            Writeln('Folder ' + Name + ' only had subtitle file(s). Removing its content!');
+            for Filepath in TDirectory.GetFiles(Name, '*.ro.srt', TSearchOption.soAllDirectories) do begin
+              TFile.Delete(Filepath);
+            end;
           end;
+          Writeln('Removing folder ' + Name + '!');
+          RemoveDir(Name);
+          Result := true;
+        end else begin
+          Result := false;
         end;
-        Writeln('Removing folder ' + Name + '!');
-        RemoveDir(Name);
-        Result := true;
       end else begin
-        Result := false;
+        Result := true;
       end;
     finally
       FindClose(SearchResult);
