@@ -8,7 +8,7 @@ It cleans up the Plex libraries of the subtitles left after using UTF-8 Subtitle
 
 ## Installation
 
-Download the [SubtitlesLeftoverCleaner_x86.exe or SubtitlesLeftoverCleaner_x64.exe from the latest release](https://github.com/adriantc/subtitlesleftovercleaner/releases/latest). Choose the arhitecture you require (x86 or x86-64). If you don't know what that is choose [SubtitlesLeftoverCleaner_x86.exe](https://github.com/adriantc/subtitlesleftovercleaner/releases/latest).
+Download the [SubtitlesLeftoverCleaner_x86.exe or SubtitlesLeftoverCleaner_x64.exe from the latest release](https://github.com/adriantc/subtitlesleftovercleaner/releases/latest). Choose the arhitecture you require (x86 or x86-64). If you don't know what that is, choose [SubtitlesLeftoverCleaner_x86.exe](https://github.com/adriantc/subtitlesleftovercleaner/releases/latest).
 
 ## Usage
 
